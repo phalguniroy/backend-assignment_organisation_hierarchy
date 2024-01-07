@@ -287,8 +287,13 @@ const imageApiUrl = `https://picsum.photos/v2/list?page=1&limit=${n}`;
 console.log(imageApiUrl);
 app.get('/', async (req, res) => {
     
-
-    res.send(`<a href="http://localhost:9000/getEmployeeData"> Call employee data<a/>`);
+    const baseUrl = window.location.origin;
+    const newUrl = baseUrl + "/getEmployeeData";
+    const openUrl = () => {
+        window.open(newUrl, '_blank');
+    }
+    res.send(`<a href="#" onClick="openUrl()"> Call employee data<a/>`);
+     res.send(`<p> Add<p/>`);
 })
 
 app.get('/getEmployeeData', async (req, res) => {
