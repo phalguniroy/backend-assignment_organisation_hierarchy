@@ -286,14 +286,20 @@ const imageApiUrl = `https://picsum.photos/v2/list?page=1&limit=${n}`;
 
 console.log(imageApiUrl);
 app.get('/', async (req, res) => {
-    
-    const baseUrl = window.location.origin;
-    const newUrl = baseUrl + "/getEmployeeData";
-    const openUrl = () => {
-        window.open(newUrl, '_blank');
-    }
-    res.send(`<a href="#" onClick="openUrl()"> Call employee data<a/>`);
-     res.send(`<p> Add<p/>`);
+     res.send(`
+     <html>
+         <body>
+             <a href="#" onclick="openNewTabWithGetData();">Click me to open new tab with 'Employee Data'</a>
+             <script>
+                 function openNewTabWithGetData() {
+                     const baseUrl = window.location.origin;
+                     const newUrl = baseUrl + "/getEmployeeData";
+                     window.open(newUrl, '_blank');
+                 }
+             </script>
+         </body>
+     </html>
+ `);
 })
 
 app.get('/getEmployeeData', async (req, res) => {
@@ -308,4 +314,4 @@ app.get('/getEmployeeData', async (req, res) => {
     res.send(employeeData);
 })
 
-app.listen(9000, () => console.log('Server started...'));
+app.listen(9000, () => console.log('Server started... on port 9000'));
