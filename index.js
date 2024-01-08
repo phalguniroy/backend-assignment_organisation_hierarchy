@@ -11,7 +11,7 @@ const employeeData = [
     {
         "name": "Lori Martin",
         "email": "thompsonbrent@example.net",
-        "designation": "Estate manager/land agent",
+        "designation": "CEO",
         "reporting_manager": null
     },
     {
